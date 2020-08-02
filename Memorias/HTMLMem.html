@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+        <title>Decodifika</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<link rel="shortcut icon" href="https://www.decodifika.com.br/icone.ico">
+		<link rel="stylesheet" type="text/css" href="estilosMem2.css"> 
+
+	</head>
+	
+	
+	<script src="scriptMem.js"></script>
+	
+	
+	<body onload="criaTabela()">
+		
+		<h1><a href="https://www.decodifika.com.br/">Decodifika</a></h1>
+		
+		<div class="opcoes">
+			<tr id="linhaopcoes">
+				<td id="karna"><a href="https://www.decodifika.com.br/MapaDeKarnaugh/HTMLMap.html">Mapa de Karnaugh</a></td>
+				<td id="maqestados"><a href="https://www.decodifika.com.br/MaquinaDeEstados/HTMLMaq.html">Máquina de Estados</a></td>
+				<td id="regist"><a href="https://www.decodifika.com.br/Registradores/HTMLReg.html">Registradores</a></td>
+				<td id="memoria"><a href="https://www.decodifika.com.br/Memorias/HTMLMem.html">Memórias</a></td>
+			</tr>
+		</div>	
+		
+	<!-- <p id="msgConstrucao">Em construção :)</p>  -->
+		
+		
+		<h2>Indexador de Memórias</h2>
+		
+		<div id="selecaoMemorias" oninput="criaTabela()">
+			
+			<b>Tipo de memória:</b><br><br>
+			<input class="radioMem" type="radio" name="tipoMem"  value="10" checked="checked"> 1024 bytes - 1 KiB - 8 Kib<br>
+			<input class="radioMem" type="radio" name="tipoMem" value="11" > 2048 bytes - 2 KiB - 16 Kib<br>
+			<input class="radioMem" type="radio" name="tipoMem" value="12" > 4096 bytes - 4 KiB - 32 Kib
+		
+		</div>
+		
+		<div id="selecaoQnt" oninput="criaTabela()">
+			<b>Quantidade:</b><br><br>
+			<input class="radioQnt" type="radio" name="qntMem"  value="1" checked="checked"> 1
+			<input class="radioQnt" type="radio" name="qntMem" value="2" > 2<br>
+			<input class="radioQnt" type="radio" name="qntMem" value="3" > 3
+			<input class="radioQnt" type="radio" name="qntMem" value="4" > 4<br>
+			<input class="radioQnt" type="radio" name="qntMem"  value="5"> 5
+			<input class="radioQnt" type="radio" name="qntMem" value="6" > 6<br>
+			<input class="radioQnt" type="radio" name="qntMem" value="7" > 7
+			<input class="radioQnt" type="radio" name="qntMem" value="8" > 8<br>
+		</div>
+		
+		<div id="tabelaIndex"></div>
+		
+		<div id="explicacao">&emsp;&emsp;O conceito de indexar uma memória pode parecer muito complicado a primeira vista, mas na realidade é simples. Basicamente, as 3 colunas dessa tabela (binário, hexadecimal e decimal) representam 3 maneiras de transmitir a mesma informação ao leitor. Essa informação é: <u>a posição de cada um dos espaços de armazenamento de cada uma das memórias conectadas.</u>
+		Então, por exemplo, se eu tenho uma memória composta por um módulo de 1024 bytes (em outras palavras, 1024 espaços), eu posso enumerar esses espaços de armazenamento de 0 (o primeiro) até 1023(o último, que seria o 1024° espaço). Como você pode ver pelo indexador, ao selecionar o primeiro tipo de memória na quantidade 1, verá que o indexador vai de 0 até 1023. As outras colunas dizem a mesma coisa: 1023 em Hexadecimal é 3FF e em binário é 1111111111. 
+		<br><br>&emsp;&emsp;As coisas começam a ficar interessantes quando mais de um módulo de memória deve ser utilizado ao mesmo tempo. O que acontece na prática é que cada um dos módulos permanece independente um do outro, mas como não há sentido em armazenar a mesma informação em cada um deles, devemos criar uma distinção clara entre eles, para que possamos acessar cada um individualmente e sem risco de sobrescrever algum espaço de armazenamento. É para isso que servem os bits em vermelho que aparecem quando opções de quantidade acima de 1 são selecionadas.
+		É fácil perceber que, quando mais de um módulo de memória é utilizado, apenas esses bis em vermelho se alteram de um módulo para o próximo, enquanto o resto dos bits permanece igual. Isso acontece porque esses bits em vermelho na realidade não fazem parte do hardware dos módulos de memória em si, eles servem apenas para diferenciar um módulo do outro, ou seja, a capacidade de armazenamento de cada módulo permanece a mesma, mas agora posso utilizar mais de um módulo ao mesmo tempo, já que eu tenho como saber com qual módulo estou interagindo.
+		<br><br>&emsp;&emsp;Por exemplo, se eu quero usar 2 módulos de 2KiB (2048 bytes ou 2048 espaços de armazenamento em cada), totalizando 4KiB de memória, precisarei saber em qual dos módulos minhas informações estão guardadas. Para isso, posso indexar um dos módulos normalmente, indo do 0 (primeira posição da memória) até 2047 (2048° posição da memória). Para manter as enumerações dos espaços de armazenamento do primeiro e do segundo módulo separadas, eu simplesmente começo a contar os espaços de armazenamento do segundo a partir de onde o primeiro terminou. Então, eu fico com o segundo módulo indo de 2048 até 4095, o que totaliza 4096 espaços de armazenamento na memória inteira. Agora, 4095 requer 12 bits para ser escrito em binário, e isso quer dizer que os 11 bits que o módulo de 2048 bytes possui não serão suficientes. Por isso, é adicionado um bit a mais (em vermelho) na via de endereços, que servirá para sabermos com qual módulo estamos interagindo.
+		<br><br>&emsp;&emsp;Espero que essa explicação simples e corrida tenha ajudado. Obviamente há muito mais conteúdo a ser estudado sobre memórias, especialmente sobre como conectá-las em sequência num circuito com portas lógicas e etc. Se eu encontrar algum material legal na internet, com certeza postarei aqui.  
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<p class="rodape"><img src="https://www.decodifika.com.br\IMG_20190626_195315.jpg" alt="Pippa" width="180px" height="180px">Muito obrigado pela sua visita! Meu nome é Gabriel Desiderá (ou Desi para os consagrados) e sou um estudante de engenharia elétrica na POLI-USP. Este projeto faz parte da minha jornada de aprendizado sobre HTML, JavaScript, CSS e diversas outras características de web development.<br>
+		Se você tiver alguma crítica, sugestão, música maneira, meme ou dica, consegue falar comigo em <a href="mailto:gabriel.desidera@usp.br">gabriel.desidera@usp.br</a> <br> <br>
+		<i>Ainda estou trabalhando no port para mobile, nas funções que reduzem as equações booleanas às suas formas minimizadas, nas máquinas de estado, nos registradores etc... 
+		Ainda não sei quais outras coisas aparecerão no site. Hang in there!</i>
+		
+		</p>
+	</body>
+</html>

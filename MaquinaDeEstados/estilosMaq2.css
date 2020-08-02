@@ -1,0 +1,116 @@
+body {
+	
+	font-family: Arial; background-color: rgb(160, 210, 255);
+	
+	
+	
+}
+
+table, tr, td {
+	
+	border:1px solid black; border-collapse: collapse;
+	
+}
+
+tr{
+	
+	width:100%;
+	
+}
+
+td, th {
+
+	padding: 20px;
+	
+	
+}
+			
+td {
+
+	text-align: center;
+	
+}
+
+h1 a{
+	text-decoration-line: none;
+	color: white;
+	font-family: Lucida Console;
+}
+h1 {
+	
+	background-color: #2390FE;
+	text-align: center;
+	padding: 50px;
+	font-size: 50px;
+	margin-top: 0px;
+	color: white;
+	font-family: Lucida Console;
+	
+	
+}
+
+.opcoes{
+	background-color: rgb(140, 140, 140);
+	overflow: hidden;
+	margin-top: -35px;
+	margin-bottom: 65px;
+}
+
+.opcoes a{
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+.opcoes a:hover{
+	background-color: #ddd;
+	color: black;
+}
+
+
+.rodape{
+	
+	
+	background-color: rgb(250, 250, 250);
+	padding: 15px;
+	border-radius: 15px;
+	text-align: justify;
+	margin-right: 30px;
+    margin-left: 30px;
+	margin-bottom: 30px;
+	min-height: 180px
+	
+	
+}
+
+#msgConstrucao{
+	
+	background-color: rgb(250, 250, 250);
+	padding: 15px;
+	border-radius: 15px;
+	text-align: justify;
+	margin-right: 30px;
+        margin-left: 30px;
+	margin-bottom: 30px;
+	font-size: 50px;
+        min-width: 660px
+}
+
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
+}
+
+img{
+	display: block;
+	margin-left: 25px;
+	margin-bottom: 20px;
+	float: right;
+}
