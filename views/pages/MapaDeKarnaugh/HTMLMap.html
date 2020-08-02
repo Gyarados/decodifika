@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+        <title>Decodifika</title>
+		<meta name="description" content="Calculadora online e gratuita de funções montadas a partir de um mapa de Karnaugh customizável, de 2, 3 ou 4 variáveis.">
+		<meta name="keywords" content="Mapa, Karnaugh">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<link rel="shortcut icon" href="http://decodifika.com.br/icone.ico">
+		<link rel="stylesheet" type="text/css" href="estilosMap.css"> 
+
+	</head>
+	
+	
+	<script src="scriptsMap2.js"></script>
+	
+	
+	<body onload="bleh(), criarmapa()">
+		
+		<%- include ('../../partials/header.ejs') %>	
+		
+		<forms oninput="criarmapa()">
+			
+			<h2>Calculadora/Sintetizadora de Mapa de Karnaugh Online</h2>
+			
+			<h3>Defina as vari&aacuteveis do mapa: <br>
+			
+				 <input class="radio" type="radio" name="QntVar"  value="2" checked="checked"> 2 vari&aacuteveis <br>
+				 <input class="radio" type="radio" name="QntVar" value="3" > 3 vari&aacuteveis <br>
+				 <input class="radio" type="radio" name="QntVar" value="4" > 4 vari&aacuteveis (Aviso: tome cuidado com os resultados minimizados neste modo, podem haver redundâncias)
+				 
+			</h3><br>
+			
+		</forms>
+	
+	<p id="botaoCalc"></p>
+	
+	<div style="overflow-x:auto;">
+		<p id="tabappend"></p>
+	</div>
+	
+	<div id="resps">
+	
+		<p id="resposta"></p>
+		<p id="eq"></p>
+		<p id="respostared"></p>
+		<p id="eqred"></p>
+	
+	</div>
+	
+	<br><br>
+	<%- include ('../../partials/foot.ejs') %>	
+
+	</body>
+</html>
