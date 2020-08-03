@@ -70,6 +70,8 @@ function autoSetAttributes(botao, numero, varsH, varsV, iBinario, uBinario, y, x
 			botao.style.backgroundColor = "lightgray";
 			botao.setAttribute("class", "botoes0");
 		}	
+		
+		geraRespostaLonga()
 
 	};
 }
