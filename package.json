@@ -1,7 +1,7 @@
 {
-  "name": "decodifika",
+  "name": "Decodifika",
   "version": "1.0.0",
-  "description": "meu site",
+  "description": "Decodifika é um site educacional feito por um estudante de engenharia elétrica para estudantes de engenharia elétrica",
   "main": "index.js",
   "scripts": {
 	"start": "node index.js",
