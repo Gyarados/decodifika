@@ -8,27 +8,27 @@ express()
     .set('view engine', 'ejs')
     .get("/", (req, res) => {
         
-        res.render("pages/index")
+        res.render("pages/index", {css: 'css/estilosMain.css'})
       
     })
     .get("/Memorias", (req, res) => {
         
-        res.render("pages/Memorias/Memorias")
+        res.render("pages/Memorias/Memorias", {css: 'css/estilosMem.css'})
       
     })
     .get("/MapaDeKarnaugh", (req, res) => {
         
-        res.render("pages/MapaDeKarnaugh/MapaDeKarnaugh")
+        res.render("pages/MapaDeKarnaugh/MapaDeKarnaugh", {css: 'css/estilosMap.css'})
       
     })
     .get("/Registradores", (req, res) => {
         
-        res.render("pages/Registradores/Registradores")
+        res.render("pages/Registradores/Registradores", {css: 'css/estilosReg.css'})
       
     })
     .get("/MaquinaDeEstados", (req, res) => {
         
-        res.render("pages/MaquinaDeEstados/Maquina")
+        res.render("pages/MaquinaDeEstados/Maquina", {css: 'css/estilosMaq.css'})
       
     })
     
