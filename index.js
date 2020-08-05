@@ -2,6 +2,8 @@ const PORT = process.env.PORT || 8000;
 var express = require("express")
 var path = require("path")
 
+
+
 express()
     .use(express.static(path.join(__dirname, 'public')))
     .set('views', path.join(__dirname, 'views'))
@@ -13,7 +15,7 @@ express()
     })
     .get("/Memorias", (req, res) => {
         
-        res.render("pages/Memorias/Memorias", {css: 'css/estilosMem.css'})
+        res.render("pages/Memorias/Memorias", {css: 'css/estilosMem2.css'})
       
     })
     .get("/MapaDeKarnaugh", (req, res) => {
@@ -28,7 +30,7 @@ express()
     })
     .get("/MaquinaDeEstados", (req, res) => {
         
-        res.render("pages/MaquinaDeEstados/Maquina", {css: 'css/estilosMaq.css'})
+        res.render("pages/MaquinaDeEstados/Maquina", {css: 'css/estilosMaq2.css'})
       
     })
     
